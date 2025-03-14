@@ -1,0 +1,46 @@
+<!DOCTYPE html>  
+<head>  
+    <title>Blog de comentários</title>
+
+    <style>body{
+        background-color: rgb(150, 255, 155);
+        text-align: left;
+    }
+    </style>
+</head>  
+<body>  
+    <h1 style="color: rgb(255,10,180);"> Blog de comentários</h1>  
+    <p style="color: rgb(255,10,180);">Comente o que quiser! Ninguém vai ver e não vai pra lugar nenhum, então é tranquilo.</u></p>  
+
+    <hr>
+
+    <h3 style="color: rgb(255,10,180) ;">Deixe seu comentário:</h3>  
+    <form style="color:rgb(255,10,180);" id="commentForm">  
+        Nome:<br><input type="text" id="name" required /><br><br>
+        Comentário:<br> <textarea id="comment" required ></textarea><br><br>
+        <button type="submit">Enviar para sempre!</button>
+    </form>
+
+    <hr>
+    
+    <h2 style="color:rgb(255,10,180);">Comentários:</h2>  
+    <div id="commentsList">  
+    </div>  
+
+    <script>  
+        document.getElementById('commentForm').onsubmit = function(event) {  
+            event.preventDefault();  
+            const name = document.getElementById('name').value;  
+            const comment = document.getElementById('comment').value;  
+
+            const commentElement = document.createElement('div');  
+            commentElement.innerHTML = `<strong>${name}</strong>
+                                        <p>${comment}</p>`;
+
+            document.getElementById('commentsList').appendChild(commentElement);  
+
+            document.getElementById('commentForm').reset();  
+        };  
+    </script>  
+</body>  
+</html>  
